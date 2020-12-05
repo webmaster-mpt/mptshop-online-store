@@ -1,0 +1,89 @@
+ .underlineBlock {
+	height: 0;
+	width: 35px;
+	border-top: 2px solid #5215aa;
+	margin-top: 10px;
+	transition: .4s;
+} 
+.grap{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+} 
+
+.card{
+  /* box-shadow:  ; */
+  display: grid;
+  margin: 30px;
+  grid-template-columns: 330px;
+  grid-template-rows: 310px 250px 80px; /*img text button*/
+  grid-template-areas: "image" "text" "stats";
+  border-radius: 18px;
+  background: white;
+  /* box-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #4d0099, -0.2rem 0.1rem 1rem #4d0099, 0.2rem 0.1rem 1rem #4d0099, 0 -0.5rem 2rem #4d0099, 0 0.5rem 3rem #4d0099; */
+  text-align: center;
+
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+.card-image{
+  grid-area: image;
+  padding: 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-size: cover;
+}
+.card-text{
+  grid-area: text;
+  margin: 25px;
+}
+.card-text .date{
+  color:rgb(102, 6, 126);
+  font-size: 15px;
+  font-weight: 600;
+}
+.card-text h2{
+  margin-top: 0px;
+  font-size: 28px;
+}
+.card-text p{
+  
+  color: grey;
+  font-size: 15px;
+  font-weight: 600;
+}
+.card-stats{
+  grid-area: stats;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background:#5215aa;
+}
+
+.card-stats .stat{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  color: white;
+}
+#buy{
+  color:#fff;
+  text-decoration: none;
+}
+.card-stats .type{
+  font-size: 30px;
+  text-transform: uppercase;
+}
+.card:hover{
+  transform: scale(0.9);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+}
