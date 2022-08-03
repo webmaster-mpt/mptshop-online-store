@@ -1,0 +1,94 @@
+.table-bordered {
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    border-color: #4d0099;
+}
+.table-bordered > thead > tr > th,.table-bordered > thead > tr > td{
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    border-color: #4d0099;
+}
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td{
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    border-color: #4d0099;
+    background-color: indigo;
+}
+table{
+    border-collapse: collapse;
+    box-shadow: 0.7em 0.7em 5px #5300a5;
+}
+.user-index{
+    color:white;
+}
+.breadcrumb{
+    border-collapse: collapse;
+    box-shadow: 0.7em 0.7em 5px #5300a5;
+}
+.summary{
+    color: #ffffff;
+}
+td{
+    background-color: inherit;
+    color: white;
+}
+td a{
+    color: white;
+}
+td a:hover{
+    color: white;
+}
+th{
+    color: white;
+}th a{
+     color: white;
+ }
+.not-set{
+    color: inherit;
+}
+th a:hover{
+    color: white;
+}
+#w0{
+    font-size: 16px;
+    background-color: inherit;
+}
+
+.form-control{
+    background-color: inherit;
+    color: inherit;
+    border-color: #000000;
+}
+.btn-success{
+    background-color: #000000;
+    color: white;
+    border-color: #000000;
+}
+.btn-success:hover{
+    background-color: #000000;
+    color: white;
+    border-color: #000000;
+}
+.btn-primary{
+    background-color: #000000;
+    color: white;
+    border-color: #000000;
+}
+.btn-primary:hover{
+    background-color: #000000;
+    color: white;
+    border-color: #000000;
+}
+.btn-danger{
+    background-color: #000000;
+    color: white;
+    border-color: #000000;
+}
+.btn-danger:hover{
+    background-color: #000000;
+    color: white;
+    border-color: #000000;
+}
+#w1{
+    background-color: #9370DB;
+}
