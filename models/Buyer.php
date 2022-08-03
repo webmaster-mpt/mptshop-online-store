@@ -47,7 +47,7 @@ class Buyer extends \yii\db\ActiveRecord
             'id' => 'ID',
             'id_tovar' => 'Товар',
             'id_user' => 'Пользователь',
-            'email' => 'Email',
+            'email' => 'Почта',
         ];
     }
 

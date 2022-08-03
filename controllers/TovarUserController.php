@@ -72,20 +72,21 @@ class TovarUserController extends Controller
     {
         $model = new TovarUser();
         if(Yii::$app->user->identity->id){
-            if(Yii::$app->user->isGuest || !SignupForm::hasRole(2))
-            throw new HttpException(500, "У вас недостаточно прав");
-            $file = WebUploadedFile::getInstance($model, 'photo_tovar');
+            if(Yii::$app->user->isGuest || !SignupForm::hasRole(2)){
+                throw new HttpException(500, "У вас недостаточно прав");
+            }
             if ($model->load(Yii::$app->request->post())) {
-                if ($file) {
-                    $photoname= uniqid($model->name) . $file->baseName . '.' . $file->extension;
-                    $file->saveAs(Yii::getAlias('@frontend/web') . '/uploads/' . $photoname);
-                    $model->photo_tovar = $photoname;
-                    $model->status= "отказано";
-                    if($model->save()){
+                $model->photo_tovar = WebUploadedFile::getInstance($model, 'photo_tovar');
+                $model->status = 'отказано';
+
+                if($model->save()){
+                    $model->photo_tovar->saveAs('uploads/' . $model->photo_tovar->baseName . '.' . $model->photo_tovar->extension);
                     Yii::$app->session->setFlash('success', 'Вы отправили запрос на продажу своего товара!)');
                     return $this->redirect(['site/index']);
-                    }
+                } else {
+                    var_dump($model->errors);
                 }
+
             }
         }
         else{

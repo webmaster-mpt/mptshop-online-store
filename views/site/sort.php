@@ -84,10 +84,6 @@ center {
                 $tovarAll->photo_tovar;?>" alt="" width="100%" height="100%"></div>
                 <div class="card-text">
                         <span class="date"><? echo  $tovarAll->name;?></span>
-                        <h2>─────────────</h2>
-                        <h2><? echo  $tovarAll->brand;?></h2>
-                        <p><? echo  $tovarAll->size;?></p>
-                        <p><? echo  $tovarAll->color;?></p>
                 </div>
                 <div class="card-stats">
                         <div class="stat">

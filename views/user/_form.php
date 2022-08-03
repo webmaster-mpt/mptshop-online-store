@@ -16,9 +16,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'username')->textInput() ?>
     
-    <?= $form->field($model, 'email')->textInput() ?>
-    
-    <?= $form->field($model, 'role_id')->dropDownList(Role::find()->select(['role','id'])->indexBy('id')->column(),['prompt'=>'']) ?>
+    <?= $form->field($model, 'role_id')->dropDownList(Role::find()->select(['name','id'])->indexBy('id')->column(),['prompt'=>'']) ?>
     
     <div class="form-group">
         <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>

@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
 
 <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
-<?= $form->field($model, 'photo_tovar')->fileInput(['maxlength' => true]) ?>
+<?= $form->field($model, 'photo_tovar')->fileInput() ?>
 
 <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 

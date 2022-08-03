@@ -98,7 +98,6 @@ class TovarAdminController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $model->photo_tovar=$model->photo_tovar;
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

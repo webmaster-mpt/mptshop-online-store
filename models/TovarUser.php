@@ -16,6 +16,7 @@ use Yii;
  * @property string $proizvoditel
  * @property string $country_pro
  * @property int $price
+ * @property string|null $status
  *
  * @property Buyer[] $buyers
  */
@@ -35,11 +36,12 @@ class TovarUser extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['photo_tovar', 'name', 'brand', 'size', 'color', 'proizvoditel', 'country_pro', 'price','status'], 'required'],
-            [['photo_tovar', 'size', 'color','status'], 'string'],
+            [['photo_tovar', 'name', 'brand', 'size', 'color', 'proizvoditel', 'country_pro', 'price'], 'required'],
+            [['size', 'color'], 'string'],
+            [['photo_tovar'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
             [['price'], 'integer'],
-            [['name', 'brand', 'proizvoditel'], 'string', 'max' => 50],
-            [['country_pro'], 'string', 'max' => 30],
+            [['brand', 'proizvoditel', 'country_pro'], 'string', 'max' => 50],
+            [['name'], 'string', 'max' => 250],
             [['status'], 'string', 'max' => 8],
         ];
     }
@@ -62,7 +64,7 @@ class TovarUser extends \yii\db\ActiveRecord
             'status' => 'Статус',
         ];
     }
-    
+
     /**
      * Gets query for [[Buyers]].
      *

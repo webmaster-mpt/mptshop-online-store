@@ -1,4 +1,4 @@
- .underlineBlock {
+.underlineBlock {
 	height: 0;
 	width: 35px;
 	border-top: 2px solid #5215aa;
@@ -20,12 +20,12 @@
   /* box-shadow:  ; */
   display: grid;
   margin: 30px;
-  grid-template-columns: 330px;
-  grid-template-rows: 310px 250px 80px; /*img text button*/
+  width: 280px;
+  grid-template-columns: 280px;
+  grid-template-rows: 310px 90px 50px; /*img text button-height*/
   grid-template-areas: "image" "text" "stats";
   border-radius: 18px;
   background: white;
-  /* box-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #4d0099, -0.2rem 0.1rem 1rem #4d0099, 0.2rem 0.1rem 1rem #4d0099, 0 -0.5rem 2rem #4d0099, 0 0.5rem 3rem #4d0099; */
   text-align: center;
 
   transition: 0.5s ease;
@@ -37,6 +37,7 @@
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   background-size: cover;
+  /*border: 1px solid black;*/
 }
 .card-text{
   grid-area: text;
@@ -52,7 +53,6 @@
   font-size: 28px;
 }
 .card-text p{
-  
   color: grey;
   font-size: 15px;
   font-weight: 600;
@@ -79,11 +79,64 @@
   color:#fff;
   text-decoration: none;
 }
-.card-stats .type{
-  font-size: 30px;
+.card-stats .type{ /* style price */
+  font-size: 20px;
   text-transform: uppercase;
 }
-.card:hover{
-  transform: scale(0.9);
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+/*.card:hover{*/
+/*  transform: scale(0.9);*/
+/*  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);*/
+/*}*/
+
+/*h1, h2, h3, h4, h5, h6 {*/
+/*  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;*/
+/*  text-transform: uppercase;*/
+/*  font-weight: 700;*/
+/*}*/
+/*.container {*/
+/*  padding-right: 15px;*/
+/*  padding-left: 15px;*/
+/*  margin-right: auto;*/
+/*  margin-left: auto;*/
+/*  width: 1170px;*/
+/*}*/
+/*.row {*/
+/*  margin-right: -15px;*/
+/*  margin-left: -15px;*/
+/*}*/
+/*center {*/
+/*  display: block;*/
+/*  text-align: -webkit-center;*/
+/*}*/
+/*.sign {*/
+/*  position: absolute;*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*  width: 50%;*/
+/*  height: 20%;*/
+/*  transform: translate(-50%, -50%);*/
+/*  letter-spacing: 2;*/
+/*  left: 50%;*/
+/*  top: 30%;*/
+/*  font-family: "Archivo Black", "Archivo", sans-serif;*/
+/*  text-transform: uppercase;*/
+/*  font-size: 6em;*/
+/*  font-weight: 1000;*/
+/*  color: #ffe6ff;*/
+/*  text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #4d0099, -0.2rem 0.1rem 1rem #4d0099, 0.2rem 0.1rem 1rem #4d0099, 0 -0.5rem 2rem #4d0099, 0 0.5rem 3rem #4d0099;*/
+/*  animation: shine 2s forwards, flicker 3s infinite;*/
+/*}*/
+/*.fast-flicker {*/
+/*  animation: shine 2s forwards, blink 10s 1s infinite;*/
+/*}*/
+/*.flicker {*/
+/*  animation: shine 2s forwards, blink 3s 2s infinite;*/
+/*}*/
+/*#sotrprice{*/
+/*  color:#000000;*/
+/*  margin-top: 20px;*/
+/*}*/
+#w3-error-0{
+  text-align: center;
 }

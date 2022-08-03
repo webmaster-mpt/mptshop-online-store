@@ -2,14 +2,13 @@
 
 namespace frontend\models;
 
-use common\models\User;
 use Yii;
 
 /**
  * This is the model class for table "role".
  *
  * @property int $id
- * @property string $role
+ * @property string $name
  *
  * @property User[] $users
  */
@@ -29,8 +28,8 @@ class Role extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['role'], 'required'],
-            [['role'], 'string', 'max' => 10],
+            [['name'], 'required'],
+            [['name'], 'string', 'max' => 100],
         ];
     }
 
@@ -41,7 +40,7 @@ class Role extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'role' => 'Роль',
+            'name' => 'Роль',
         ];
     }
 

@@ -15,7 +15,10 @@ use Yii;
  * @property string $color
  * @property string $proizvoditel
  * @property string $country_pro
- * @property string $price
+ * @property int $price
+ * @property string|null $status
+ *
+ * @property Buyer[] $buyers
  */
 class Tovar extends \yii\db\ActiveRecord
 {
@@ -33,11 +36,10 @@ class Tovar extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['photo_tovar', 'name', 'brand', 'size', 'color', 'proizvoditel', 'country_pro', 'price','status'], 'required'],
+            [['photo_tovar', 'name', 'brand', 'size', 'color', 'proizvoditel', 'country_pro', 'price'], 'required'],
             [['photo_tovar', 'size', 'color'], 'string'],
-            [['name', 'brand', 'proizvoditel'], 'string', 'max' => 50],
-            [['country_pro'], 'string', 'max' => 30],
             [['price'], 'integer'],
+            [['name', 'brand', 'proizvoditel', 'country_pro'], 'string', 'max' => 50],
             [['status'], 'string', 'max' => 8],
         ];
     }
@@ -57,6 +59,17 @@ class Tovar extends \yii\db\ActiveRecord
             'proizvoditel' => 'Производитель',
             'country_pro' => 'Страна производства',
             'price' => 'Цена',
+            'status' => 'Статус',
         ];
+    }
+
+    /**
+     * Gets query for [[Buyers]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getBuyers()
+    {
+        return $this->hasMany(Buyer::className(), ['id_tovar' => 'id']);
     }
 }

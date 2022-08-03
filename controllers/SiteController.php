@@ -48,16 +48,16 @@ class SiteController extends Controller
 
     public function actionSort()
     {
-        $tovarsAll = Tovar::find()->orderBy(['price'=>SORT_ASC])->all();
+        $tovarsAll = Tovar::find()->where(['status'=>'принят'])->orderBy(['price'=>SORT_ASC])->all();
         return $this->render('sort',
         [
-            'tovarsAll'=>$tovarsAll,
+            'tovarsAll' => $tovarsAll,
         ]);
     }
 
     public function actionPrice()
     {
-        $tovarsAll = Tovar::find()->orderBy(['price'=>SORT_DESC])->all();
+        $tovarsAll = Tovar::find()->where(['status'=>'принят'])->orderBy(['price'=>SORT_DESC])->all();
         return $this->render('price',
         [
             'tovarsAll'=>$tovarsAll,
@@ -89,35 +89,14 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $query="Select * from `Tovar` WHERE (`brand` != 'mptshop' or 'chill')
-        AND (`status` = 'принят')";
-        $tovarsAll = Tovar::findBySql($query)->all();
-
-        $querys="Select * from `Tovar` WHERE `brand` LIKE 'mptshop' or 'chill'
-        AND (`status` = 'принят')";
-        $tovarsMy = Tovar::findBySql($querys)->all();
+        $tovarsAll = Tovar::find()->andWhere(['not', ['brand' => 'mptshop']])->andWhere(['not',['brand' => 'chill']])->andWhere(['status' => 'принят'])->all();
+        $tovarsMy = Tovar::find()->where(['or', ['brand' => 'mptshop']])->orWhere(['and',['brand' => 'chill']])->andWhere(['status' => 'принят'])->all();
 
         return $this->render('index',
         [
             'tovarsAll'=>$tovarsAll,
             'tovarsMy'=>$tovarsMy
         ]);
-    }
-
-    public function actionLists($id)
-    {
-        $sql = "select * from `Tovar` where `price`='$id' ";
-        $models = Tovar::findBySql($sql)->asArray()->all();   
-
-        if(sizeof($models) >0){
-            echo "<option>Сортировать</option>";
-            foreach($models as $model){
-                echo "<option value='".$model['id']."'>".$model['price']."</option>";
-            }
-        }
-        else{
-            echo "<option>Выбрать ученика</option><option></option>";
-        }
     }
 
     /**

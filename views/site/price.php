@@ -69,41 +69,29 @@ center {
 </head>
 <body>
     <?php if(Yii::$app->user->identity->id){ ?>
-    <div class="col-lg-12 text-center">
-            <h1>Цены по убыванию</h1>
-            <h2>─────────────</h2>
-    </div> 
-    <div class="grap">
-    <?php
-    foreach ($tovarsAll as $tovarAll) 
-    {
-    ?>
-    
-    <div class="card">
-            
-            <div class="card-image"><img src="/uploads/<? echo  
-            $tovarAll->photo_tovar;?>" alt="" width="100%" height="100%"></div>
-            <div class="card-text">
-                    <span class="date"><? echo  $tovarAll->name;?></span>
-                    <h2>─────────────</h2>
-                    <h2><? echo  $tovarAll->brand;?></h2>
-                    <p><? echo  $tovarAll->size;?></p>
-                    <p><? echo  $tovarAll->color;?></p>
-            </div>
-            <div class="card-stats">
-                    <div class="stat">
-                            <div class="type">
-                                    <a href="<?= Url::to(['tovar/view','id'=> $tovarAll->id])?>"id="buy">Купить <? echo  $tovarAll->price;?>₽</a>
+        <div class="col-lg-12 text-center">
+                <h1>Цены по убыванию</h1>
+                <h2>─────────────</h2>
+        </div>
+        <div class="grap">
+        <?php foreach ($tovarsAll as $tovarAll) { ?>
+            <div class="card">
+
+                    <div class="card-image"><img src="/uploads/<?= $tovarAll->photo_tovar;?>" alt="" width="100%" height="100%"></div>
+                    <div class="card-text">
+                            <span class="date"><?=  $tovarAll->name;?></span>
+                    </div>
+                    <div class="card-stats">
+                            <div class="stat">
+                                    <div class="type">
+                                            <a href="<?= Url::to(['tovar/view','id'=> $tovarAll->id])?>"id="buy"> Купить <?= $tovarAll->price;?>₽</a>
+                                    </div>
                             </div>
                     </div>
             </div>
-    </div>
-    <?php } ?>
-    </div>
-    <?php 
-    }
-    else{
+        <?php } ?>
+        </div>
+    <?php } else{
         Yii::$app->session->setFlash('error', 'Вы не авторизованы. Авторизуйтесь!');
-    }
-    ?>
+    } ?>
 </body>

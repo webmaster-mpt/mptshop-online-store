@@ -20,7 +20,6 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
@@ -29,20 +28,14 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
     <script type='text/javascript' src='http:///web/api//'></script>
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
     <style>
         #serverload {
             margin: 30px;
             width: 330px;
             height: 136px;
-        }</style>
-
-    <style>
+        }
         .preloader{
             position: fixed;
             background-color: #9370DB;
@@ -58,8 +51,6 @@ AppAsset::register($this);
             top: 50vh;
             margin: -100px 0 0 -100px;
         }
-    </style>
-    <style>
         .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus{
             color:white;
             background: none;
@@ -91,6 +82,8 @@ AppAsset::register($this);
             left: 0;
             width: 100%;
             transition: 0.5s ease;
+            background-color: #9370DB;
+
         }
         #w0:hover{
             text-transform: uppercase;
@@ -175,6 +168,7 @@ AppAsset::register($this);
     $menuItems = [
         ['label' => 'Главная', 'url' => ['/site/index']],
         ['label' => 'Продажа', 'url' => ['/tovar-user/create']],
+        ['label' => 'Поддержка', 'url' => ['/helper/create']],
         ['label' => 'Сортировать', 'items' => [
             ['label' => 'По возрастанию', 'url' => ['/site/sort']],
             ['label' => 'По убыванию', 'url' => ['/site/price']],
@@ -217,8 +211,6 @@ AppAsset::register($this);
         <?= $content ?>
     </div>
 </div>
-
-
 <?php $this->endBody() ?>
 </body>
 </html>

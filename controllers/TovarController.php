@@ -38,27 +38,29 @@ class TovarController extends Controller
     public function actionView($id)
     {
         $model = new tovar();
-        $email='sino.muzafari0401@gmail.com';
         $buyer_model = new Buyer();
         if ($buyer_model->load(Yii::$app->request->post())) {
             if($buyer_model->id_user=Yii::$app->user->identity->id){            
                 if ($buyer_model->save($model->load(Yii::$app->request->post()))) {
-                    Yii::$app->mailer->compose()
-                    ->setFrom($email)
-                    ->setTo($buyer_model->email)
-                    ->setBcc($email)
-                    ->setSubject('Chill$h0p')
-                    ->setHtmlBody(
-                        '<h3>Вы приобрели товар в интернет магазине Chill$h0p<h3>
+                    $message = Yii::$app->mailer->compose();
+                    $message
+                        ->setFrom('p_s.muzafari@mpt.ru')
+                        ->setTo($buyer_model->email)
+                        ->setSubject('Chill$hop Покупка')
+                        ->setTextBody('Вы купили товар'. $model->name)
+                        ->setHtmlBody(
+                            '<h3>Вы приобрели товар в интернет магазине Chill$h0p<h3>
                         <p style="font-size:15px;"> --------------- Ваш чек: --------------- <br><p>
                         <p> --------------- Название товара: '.$model->name.' --------------- <p>
                         <p> --------------- Бренд: '.$model->brand.' --------------- <p>
                         <p> --------------- Размер: '.$model->size.' --------------- <p>
-                        <p> --------------- Цена купленого товара: '.$model->price.' ---------------<p>'
-                    )
-                    ->send();
-                        Yii::$app->session->setFlash('success', 'На почте чек!)');
-                        return $this->goHome();
+                        <p> --------------- Цена купленого товара: '.$model->price.'₽ ---------------<p>'
+                        )
+                        ->send();
+                    Yii::$app->session->setFlash('success', 'На почте чек!)');
+                    return $this->goHome();
+                } else {
+                    var_dump('no');
                 }
             }
             else{
